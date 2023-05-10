@@ -29,7 +29,6 @@ public class ProdutoService {
         return produtoRepository.findById(id);
     }
 
-    @Transactional
     public void alterar(Long id, Produto produtoAtualizado) {
         Produto produtoExistente = produtoRepository.findById(id);
         if (produtoExistente != null) {
@@ -40,7 +39,6 @@ public class ProdutoService {
         }
     }
     
-    @Transactional
     public void deletar(Long id) {
         Produto produto = produtoRepository.findById(id);
         if (produto != null) {

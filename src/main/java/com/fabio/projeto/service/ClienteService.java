@@ -6,7 +6,6 @@ import com.fabio.projeto.repository.ClienteRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import  jakarta.inject.Inject;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
 
 import java.util.List;
@@ -29,7 +28,6 @@ public class ClienteService {
         return clienteRepository.findById(id);
     }
 
-    @Transactional
     public void alterar(Long id, Cliente clienteAtualizado) {
         Cliente clienteExistente = clienteRepository.findById(id);
         if (clienteExistente != null) {
@@ -42,7 +40,6 @@ public class ClienteService {
         }
     }
 
-    @Transactional
     public void deletar(Long id) {
         Cliente cliente = clienteRepository.findById(id);
         if (cliente != null) {
