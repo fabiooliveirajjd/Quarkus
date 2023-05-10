@@ -17,13 +17,12 @@ public class ClienteService {
     @Inject
     ClienteRepository clienteRepository;
 
-    public List<Cliente> buscarTodos() {
-        return clienteRepository.listAll();
+    public void criar(Cliente cliente) {
+        clienteRepository.persist(cliente);
     }
 
-    public void criar(Cliente cliente) {
-
-        clienteRepository.persist(cliente);
+    public List<Cliente> buscarTodos() {
+        return clienteRepository.listAll();
     }
 
     public Cliente buscarPorid (Long id){
@@ -47,7 +46,7 @@ public class ClienteService {
     public void deletar(Long id) {
         Cliente cliente = clienteRepository.findById(id);
         if (cliente != null) {
-            clienteRepository.delete(cliente);
+            clienteRepository.deleteById(id);
         } else {
             throw new NotFoundException("Cliente não encontrado");
         }

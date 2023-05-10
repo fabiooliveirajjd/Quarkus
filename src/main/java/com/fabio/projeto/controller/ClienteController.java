@@ -19,16 +19,16 @@ public class ClienteController {
     @Inject
     ClienteService clienteService;
 
-    @GET
-    public List<Cliente> buscarTodos() {
-        return clienteService.buscarTodos();
-    }
-
     @POST
     @Transactional
     public Response criar(Cliente cliente) {
         clienteService.criar(cliente);
         return Response.status(Response.Status.CREATED).entity(cliente).build();
+    }
+
+    @GET
+    public List<Cliente> buscarTodos() {
+        return clienteService.buscarTodos();
     }
 
     @GET
