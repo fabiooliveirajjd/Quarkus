@@ -8,7 +8,6 @@ import com.fabio.projeto.repository.ProdutoRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
 
 @ApplicationScoped
